@@ -4,7 +4,9 @@ import { AppService } from './app.service';
 import { CharactersModule } from './characters/characters.module';
 
 @Module({
-  imports: [CharactersModule],
+  imports: [
+    CharactersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

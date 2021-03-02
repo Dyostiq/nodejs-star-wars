@@ -1,0 +1,24 @@
+service: star-wars-serverless
+frameworkVersion: '2'
+
+
+plugins:
+  - serverless-offline
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  lambdaHashingVersion: 20201221
+  region: us-east-1
+  ecr:
+    # In this section you can define images that will be built locally and uploaded to ECR
+    images:
+      appimage:
+        path: ./
+
+functions:
+  hello:
+    image:
+      name: appimage
+    events:
+      - httpApi: '*'
